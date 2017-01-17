@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[XSLineChart calculateChartPath]:XSLineChart.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[XSLineChart strokeChart]:XSLineChart.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.chartLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[XSLineChart drawRect:]:XSLineChart.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_chartCavanHeight">
+            </PersistentString>
+            <PersistentString
+               value = " 3/20*_chartCavanHeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
