@@ -105,6 +105,36 @@ static const float p_CharMargin  = 25.f;
 }
 
 - (void)tapXLabel:(UIButton *)button{
+    
+    CGFloat yValue;
+    CGFloat innerGrade;
+    
+    yValue = _chartData.getData(button.tag).y;
+    
+    innerGrade = yValue/20.0;
+    
+    int x = button.tag * _xLabelWidth + p_YAxisOffset + p_CharMargin + _xLabelWidth / 2.0 ;
+    
+    int y = _chartCavanHeight - (innerGrade * _chartCavanHeight) + (_yLabelHeight / 2) + p_CharMargin - p_CharMargin;
+
+    
+    if (self.showPointLabel) {
+        
+        UIView *pointLabel = [self viewWithTag:2000];
+        [pointLabel removeFromSuperview];
+        
+        UILabel *lable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 20)];
+        lable.center = CGPointMake(x, y + 20);
+        lable.textAlignment = NSTextAlignmentCenter;
+        lable.font = [UIFont systemFontOfSize:14.0];
+        lable.text = [NSString stringWithFormat:@"%.1f",yValue];
+        lable.tag = 2000;
+        [self addSubview:lable];
+    }
+    
+    
+    
+    
     [UIView animateWithDuration:0.4 animations:^{
         _indicatorView.center = CGPointMake(button.frame.origin.x+_xLabelWidth/2.0, _indicatorView.center.y);
     }];
@@ -159,13 +189,32 @@ static const float p_CharMargin  = 25.f;
     }
 }
 - (void)setChartData:(XSLineChartData *)data{
-    
-    
-    
-    
-    
-    
     _chartData = data;
+    
+    
+    CGFloat yValue;
+    CGFloat innerGrade;
+    
+    yValue = _chartData.getData(0).y;
+    
+    innerGrade = yValue/20.0;
+    int x = p_YAxisOffset + p_CharMargin + _xLabelWidth / 2.0 ;
+    
+    int y = _chartCavanHeight - (innerGrade * _chartCavanHeight) + (_yLabelHeight / 2) + p_CharMargin - p_CharMargin;
+    if (self.showPointLabel) {
+        
+        UIView *pointLabel = [self viewWithTag:2000];
+        [pointLabel removeFromSuperview];
+        
+        UILabel *lable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 20)];
+        lable.center = CGPointMake(x, y + 20);
+        lable.textAlignment = NSTextAlignmentCenter;
+        lable.font = [UIFont systemFontOfSize:14.0];
+        lable.text = [NSString stringWithFormat:@"%.1f",yValue];
+        lable.tag = 2000;
+        [self addSubview:lable];
+    }
+    
     [self setNeedsDisplay];
     
 }
@@ -403,6 +452,11 @@ static const float p_CharMargin  = 25.f;
         _pathAnimation.toValue = @1.0f;
     }
     return _pathAnimation;
+}
+
+- (void)updateChartData:(XSLineChartData *)data{
+
+    
 }
 
 @end

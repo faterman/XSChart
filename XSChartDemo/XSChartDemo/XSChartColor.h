@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT    ([UIScreen mainScreen].bounds.size.height)
 #define XSNormalPointColor          [UIColor colorWithRed:246.0 / 255.0 green:246.0 / 255.0 blue:246.0 / 255.0 alpha:1.0f]
 #define XSIndicatorRed          [UIColor colorWithRed:254.0 / 255.0 green:77.0 / 255.0 blue:84.0 / 255.0 alpha:1.0f]
 #define XSGrey          [UIColor colorWithRed:246.0 / 255.0 green:246.0 / 255.0 blue:246.0 / 255.0 alpha:1.0f]

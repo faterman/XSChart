@@ -19,6 +19,7 @@
 		2A928C7E1E2E343300F15134 /* XSLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C761E2E343300F15134 /* XSLineChart.m */; };
 		2A928C7F1E2E343300F15134 /* XSLineChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C781E2E343300F15134 /* XSLineChartData.m */; };
 		2A928C801E2E343300F15134 /* XSLineChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C7A1E2E343300F15134 /* XSLineChartDataItem.m */; };
+		2A928C841E2F5CFD00F15134 /* XSAutorotateNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C831E2F5CFD00F15134 /* XSAutorotateNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		2A928C781E2E343300F15134 /* XSLineChartData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLineChartData.m; sourceTree = "<group>"; };
 		2A928C791E2E343300F15134 /* XSLineChartDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLineChartDataItem.h; sourceTree = "<group>"; };
 		2A928C7A1E2E343300F15134 /* XSLineChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLineChartDataItem.m; sourceTree = "<group>"; };
+		2A928C821E2F5CFD00F15134 /* XSAutorotateNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAutorotateNavigationBar.h; sourceTree = "<group>"; };
+		2A928C831E2F5CFD00F15134 /* XSAutorotateNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAutorotateNavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 				2A928C471E2E040800F15134 /* AppDelegate.m */,
 				2A928C491E2E040800F15134 /* ViewController.h */,
 				2A928C4A1E2E040800F15134 /* ViewController.m */,
+				2A928C811E2F5CC900F15134 /* UI */,
 				2A928C5A1E2E041F00F15134 /* XSChart */,
 				2A928C4C1E2E040800F15134 /* Main.storyboard */,
 				2A928C4F1E2E040800F15134 /* Assets.xcassets */,
@@ -117,6 +121,15 @@
 				2A928C7A1E2E343300F15134 /* XSLineChartDataItem.m */,
 			);
 			name = XSChart;
+			sourceTree = "<group>";
+		};
+		2A928C811E2F5CC900F15134 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2A928C821E2F5CFD00F15134 /* XSAutorotateNavigationBar.h */,
+				2A928C831E2F5CFD00F15134 /* XSAutorotateNavigationBar.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +207,7 @@
 			files = (
 				2A928C7C1E2E343300F15134 /* XSChartLabel.m in Sources */,
 				2A928C4B1E2E040800F15134 /* ViewController.m in Sources */,
+				2A928C841E2F5CFD00F15134 /* XSAutorotateNavigationBar.m in Sources */,
 				2A928C7B1E2E343300F15134 /* XSChartColor.m in Sources */,
 				2A928C7F1E2E343300F15134 /* XSLineChartData.m in Sources */,
 				2A928C7D1E2E343300F15134 /* XSGenericChart.m in Sources */,

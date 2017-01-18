@@ -3,13 +3,13 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[XSLineChart calculateChartPath]:XSLineChart.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[XSLineChart strokeChart]:XSLineChart.m">
+         contextName = "-[ViewController portraitLayout]:ViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.chartLine">
+               value = "[UIScreen mainScreen].bounds.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "SCREEN_WIDTH">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +23,17 @@
                value = " 3/20*_chartCavanHeight">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[XSLineChart strokeChart]:XSLineChart.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.chartLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[XSLineChart calculateChartPath]:XSLineChart.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

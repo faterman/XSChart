@@ -21,7 +21,7 @@
 
 - (void)setupDefaultValues
 {
-    _inflexionPointWidth = 4.f;
+    _inflexionPointWidth = 8.f;
     _lineWidth = 1.f;
     _alpha = 1.f;
     _showPointLabel = NO;

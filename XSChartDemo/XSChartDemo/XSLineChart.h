@@ -20,10 +20,12 @@
 @property (nonatomic) XSLineChartData *chartData;
 /// 是否使用弧形过渡
 @property (nonatomic) BOOL showSmoothLines;
+/// 显示PointLabel
+@property (nonatomic) BOOL showPointLabel;
 
 - (void)setXLabels:(NSArray *)xLabels;
 /// 绘制图表
 - (void)strokeChart;
 /// 更新更新
-- (void)updateChartData:(NSArray *)data;
+- (void)updateChartData:(XSLineChartData *)data;
 @end
