@@ -15,6 +15,7 @@
 /// Y轴偏移
 static const float p_YAxisOffset = 10.f;
 static const float p_CharMargin  = 25.f;
+static const float xLabelWidth = 80.f;
 @interface XSLineChart ()
 {
     UIView *_indicatorView;
@@ -42,7 +43,6 @@ static const float p_CharMargin  = 25.f;
     
     return self;
 }
-
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
@@ -54,7 +54,6 @@ static const float p_CharMargin  = 25.f;
 }
 
 #pragma mark private methods
-
 - (void)setupDefaultValues {
     [super setupDefaultValues];
     self.backgroundColor = [UIColor whiteColor];
@@ -68,11 +67,10 @@ static const float p_CharMargin  = 25.f;
     _chartPointArray = [[NSMutableArray alloc]initWithCapacity:0];
     [self setYLabels];
 }
-
 - (void)setXLabels:(NSArray *)xLabels {
     
     _xLabels = xLabels;
-    _xLabelWidth = (_chartCavanWidth - 2*p_CharMargin - p_YAxisOffset)/xLabels.count;
+    _xLabelWidth = xLabelWidth;
     
     NSString *labelText;
     
@@ -83,10 +81,7 @@ static const float p_CharMargin  = 25.f;
         NSInteger y = p_CharMargin + _chartCavanHeight;
         
         XSChartLabel *label = [[XSChartLabel alloc] initWithFrame:CGRectMake(x, y, (NSInteger) _xLabelWidth, (NSInteger) p_CharMargin)];
-        
-        
-        
-        
+
         [label setTextAlignment:NSTextAlignmentCenter];
         label.text = labelText;
         [self addSubview:label];
@@ -103,7 +98,6 @@ static const float p_CharMargin  = 25.f;
     _indicatorView.backgroundColor = [UIColor redColor];
     [self addSubview:_indicatorView];
 }
-
 - (void)tapXLabel:(UIButton *)button{
     
     CGFloat yValue;
@@ -116,10 +110,9 @@ static const float p_CharMargin  = 25.f;
     int x = button.tag * _xLabelWidth + p_YAxisOffset + p_CharMargin + _xLabelWidth / 2.0 ;
     
     int y = _chartCavanHeight - (innerGrade * _chartCavanHeight) + (_yLabelHeight / 2) + p_CharMargin - p_CharMargin;
-
     
     if (self.showPointLabel) {
-        
+    
         UIView *pointLabel = [self viewWithTag:2000];
         [pointLabel removeFromSuperview];
         
@@ -132,61 +125,58 @@ static const float p_CharMargin  = 25.f;
         [self addSubview:lable];
     }
     
-    
-    
-    
     [UIView animateWithDuration:0.4 animations:^{
         _indicatorView.center = CGPointMake(button.frame.origin.x+_xLabelWidth/2.0, _indicatorView.center.y);
     }];
 }
 - (void)setYLabels {
     
-    NSInteger index = 0;
-    NSInteger num = 5;
-    
-    while (num > 0) {
-        
-        index += 1;
-        num -= 1;
-    }
-    
-    for (NSUInteger i = 0; i < 5; i++) {
-        
-        float y = 0.0f;
-        NSString * yText;
-        
-        switch (i) {
-            case 0:  /// 20.0
-                y = p_CharMargin;
-                yText = @"20.0";
-                break;
-            case 1:
-                y = _chartCavanHeight/2 + p_CharMargin;
-                yText = @"10.0";
-                break;
-            case 2:
-                y = _chartCavanHeight/2 + 3.0/20*_chartCavanHeight + p_CharMargin;
-                yText = @"7.0";
-                break;
-            case 3:
-                y = _chartCavanHeight/2 + 5.6/20*_chartCavanHeight + p_CharMargin;
-                yText = @"4.4";
-                break;
-            case 4:
-                y = _chartCavanHeight + p_CharMargin;
-                yText = @"0.0";
-                break;
-                
-            default:
-                break;
-        }
-        
-        XSChartLabel *label = [[XSChartLabel alloc] initWithFrame:CGRectMake(0.0, 0.0, (NSInteger) p_CharMargin, (NSInteger) _yLabelHeight)];
-        label.center = CGPointMake(label.center.x, y);
-        [label setTextAlignment:NSTextAlignmentRight];
-        label.text = yText;
-        [self addSubview:label];
-    }
+//    NSInteger index = 0;
+//    NSInteger num = 5;
+//    
+//    while (num > 0) {
+//        
+//        index += 1;
+//        num -= 1;
+//    }
+//    
+//    for (NSUInteger i = 0; i < 5; i++) {
+//        
+//        float y = 0.0f;
+//        NSString * yText;
+//        
+//        switch (i) {
+//            case 0:  /// 20.0
+//                y = p_CharMargin;
+//                yText = @"20.0";
+//                break;
+//            case 1:
+//                y = _chartCavanHeight/2 + p_CharMargin;
+//                yText = @"10.0";
+//                break;
+//            case 2:
+//                y = _chartCavanHeight/2 + 3.0/20*_chartCavanHeight + p_CharMargin;
+//                yText = @"7.0";
+//                break;
+//            case 3:
+//                y = _chartCavanHeight/2 + 5.6/20*_chartCavanHeight + p_CharMargin;
+//                yText = @"4.4";
+//                break;
+//            case 4:
+//                y = _chartCavanHeight + p_CharMargin;
+//                yText = @"0.0";
+//                break;
+//                
+//            default:
+//                break;
+//        }
+//        
+//        XSChartLabel *label = [[XSChartLabel alloc] initWithFrame:CGRectMake(0.0, 0.0, (NSInteger) p_CharMargin, (NSInteger) _yLabelHeight)];
+//        label.center = CGPointMake(label.center.x, y);
+//        [label setTextAlignment:NSTextAlignmentRight];
+//        label.text = yText;
+//        [self addSubview:label];
+//    }
 }
 - (void)setChartData:(XSLineChartData *)data{
     _chartData = data;
@@ -218,7 +208,6 @@ static const float p_CharMargin  = 25.f;
     [self setNeedsDisplay];
     
 }
-
 - (void)strokeChart {
     
     [self calculateChartPath];
@@ -248,7 +237,6 @@ static const float p_CharMargin  = 25.f;
     self.chartLine.strokeEnd = 1.0;
     
     // 注释之后就没有绘制动画了
-//    [pointLayer addAnimation:self.pathAnimation forKey:@"strokeEndAnimation"];    [CATransaction commit];
     
     [CATransaction commit];
     
@@ -284,7 +272,6 @@ static const float p_CharMargin  = 25.f;
 
     
 }
-
 - (void)calculateChartPath {
     
     XSLineChartData *chartData = self.chartData;
@@ -309,7 +296,7 @@ static const float p_CharMargin  = 25.f;
         
         int x = i * _xLabelWidth + p_YAxisOffset + p_CharMargin + _xLabelWidth / 2.0 ;
         
-        int y = _chartCavanHeight - (innerGrade * _chartCavanHeight) + (_yLabelHeight / 2) + p_CharMargin - p_CharMargin;
+        int y = _chartCavanHeight - (innerGrade * _chartCavanHeight) - p_CharMargin;
         
        
         UIBezierPath *pointPath = [UIBezierPath bezierPath];
@@ -368,7 +355,6 @@ static const float p_CharMargin  = 25.f;
     }
     self.chartPath = progressline;
 }
-
 - (void)drawRect:(CGRect)rect {
     
     
@@ -416,11 +402,9 @@ static const float p_CharMargin  = 25.f;
     
     [super drawRect:rect];
 }
-
 + (CGPoint)midPointBetweenPoint1:(CGPoint)point1 andPoint2:(CGPoint)point2 {
     return CGPointMake((point1.x + point2.x) / 2, (point1.y + point2.y) / 2);
 }
-
 + (CGPoint)controlPointBetweenPoint1:(CGPoint)point1 andPoint2:(CGPoint)point2 {
     CGPoint controlPoint = [self midPointBetweenPoint1:point1 andPoint2:point2];
     CGFloat diffY = abs((int) (point2.y - controlPoint.y));
@@ -430,8 +414,6 @@ static const float p_CharMargin  = 25.f;
         controlPoint.y -= diffY;
     return controlPoint;
 }
-
-
 - (CABasicAnimation *)fadeAnimation {
     CABasicAnimation *fadeAnimation = nil;
     if (self.displayAnimated) {
@@ -442,7 +424,6 @@ static const float p_CharMargin  = 25.f;
     }
     return fadeAnimation;
 }
-
 - (CABasicAnimation *)pathAnimation {
     if (self.displayAnimated && !_pathAnimation) {
         _pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -453,7 +434,6 @@ static const float p_CharMargin  = 25.f;
     }
     return _pathAnimation;
 }
-
 - (void)updateChartData:(XSLineChartData *)data{
 
     

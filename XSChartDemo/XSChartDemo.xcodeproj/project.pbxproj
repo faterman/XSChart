@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A330FCD1E5592250094F82A /* XSLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A330FCC1E5592250094F82A /* XSLineView.m */; };
 		2A928C451E2E040800F15134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C441E2E040800F15134 /* main.m */; };
 		2A928C481E2E040800F15134 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C471E2E040800F15134 /* AppDelegate.m */; };
 		2A928C4B1E2E040800F15134 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A928C4A1E2E040800F15134 /* ViewController.m */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A330FCB1E5592250094F82A /* XSLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLineView.h; sourceTree = "<group>"; };
+		2A330FCC1E5592250094F82A /* XSLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLineView.m; sourceTree = "<group>"; };
 		2A928C401E2E040800F15134 /* XSChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A928C441E2E040800F15134 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A928C461E2E040800F15134 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 		2A928C5A1E2E041F00F15134 /* XSChart */ = {
 			isa = PBXGroup;
 			children = (
+				2A330FCB1E5592250094F82A /* XSLineView.h */,
+				2A330FCC1E5592250094F82A /* XSLineView.m */,
 				2A928C6E1E2E343300F15134 /* XSChart.h */,
 				2A928C6F1E2E343300F15134 /* XSChartColor.h */,
 				2A928C701E2E343300F15134 /* XSChartColor.m */,
@@ -212,6 +217,7 @@
 				2A928C7F1E2E343300F15134 /* XSLineChartData.m in Sources */,
 				2A928C7D1E2E343300F15134 /* XSGenericChart.m in Sources */,
 				2A928C481E2E040800F15134 /* AppDelegate.m in Sources */,
+				2A330FCD1E5592250094F82A /* XSLineView.m in Sources */,
 				2A928C7E1E2E343300F15134 /* XSLineChart.m in Sources */,
 				2A928C801E2E343300F15134 /* XSLineChartDataItem.m in Sources */,
 				2A928C451E2E040800F15134 /* main.m in Sources */,

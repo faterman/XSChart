@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "XSChart.h"
 #import "XSAutorotateNavigationBar.h"
+#import "XSLineView.h"
 @interface ViewController ()<XSAutorotateNavigationBarDelegate>
 {
     BOOL _isLandscape;
+    UIScrollView *_scrollView;
 }
 @property(nonatomic) UIDeviceOrientation orientation;
 @end
@@ -21,10 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
     self.orientation = UIDeviceOrientationPortrait;
     [self portraitLayout];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 - (IBAction)fullScreen:(id)sender {
     
@@ -93,25 +98,13 @@
 }
 
 - (void)portraitLayout {
-    
+        
     for (UIView * subView in self.view.subviews) {
         [subView removeFromSuperview];
     }
     
-    XSLineChart * lineChart = [[XSLineChart alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 200.0)];
-    [lineChart setXLabels:@[@"12/1",@"12/2",@"12/3",@"12/4",@"12/5"]];
-    NSArray * dataArray = @[@2, @10.2, @1.3, @7.6, @2];
-    XSLineChartData *data = [XSLineChartData new];
-    data.itemCount = lineChart.xLabels.count;
-    data.getData = ^(NSUInteger index) {
-        CGFloat yValue = [dataArray[index] floatValue];
-        return [XSLineChartDataItem dataItemWithY:yValue];
-    };
-    lineChart.showPointLabel = NO;
-    lineChart.showSmoothLines = YES;
-    lineChart.chartData = data;
-    [lineChart strokeChart];
-    [self.view addSubview:lineChart];
+    XSLineView *lineView = [[XSLineView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 200.0) XLabels:@[@"12/1",@"12/2",@"12/3",@"12/4",@"12/5",@"12/1",@"12/2",@"12/3",@"12/4",@"12/5",@"12/1",@"12/2",@"12/3",@"12/4",@"12/5"] DataArray:@[@2, @10.2, @1.3, @7.6, @2, @2, @10.2, @1.3, @7.6, @2,@2, @10.2, @1.3, @7.6, @2]];
+    [self.view addSubview:lineView];
 
 }
 
@@ -125,22 +118,10 @@
     XSAutorotateNavigationBar *navigationBar = [[XSAutorotateNavigationBar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, 44)];
     navigationBar.delegate = self;
     [self.view addSubview:navigationBar];
+
+    XSLineView *lineView = [[XSLineView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_HEIGHT, SCREEN_WIDTH-44) XLabels:@[@"12/1",@"12/2",@"12/3",@"12/4",@"12/5",@"12/1",@"12/2",@"12/3",@"12/4",@"12/5",@"12/1",@"12/2",@"12/3",@"12/4",@"12/5"] DataArray:@[@2, @10.2, @1.3, @7.6, @2, @2, @10.2, @1.3, @7.6, @2,@2, @10.2, @1.3, @7.6, @2]];
     
-    
-    XSLineChart * lineChart = [[XSLineChart alloc] initWithFrame:CGRectMake(0, 44, SCREEN_HEIGHT, SCREEN_WIDTH-44)];
-    [lineChart setXLabels:@[@"12/1",@"12/2",@"12/3",@"12/4",@"12/5"]];
-    NSArray * dataArray = @[@2, @8, @1.3, @7.6, @2];
-    XSLineChartData *data = [XSLineChartData new];
-    data.itemCount = lineChart.xLabels.count;
-    data.getData = ^(NSUInteger index) {
-        CGFloat yValue = [dataArray[index] floatValue];
-        return [XSLineChartDataItem dataItemWithY:yValue];
-    };
-    lineChart.showPointLabel = YES;
-    lineChart.showSmoothLines = YES;
-    lineChart.chartData = data;
-    [lineChart strokeChart];
-    [self.view addSubview:lineChart];
+    [self.view addSubview:lineView];
 
 }
 -(void)rightItemClick{
